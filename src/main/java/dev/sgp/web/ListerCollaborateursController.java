@@ -23,16 +23,11 @@ public class ListerCollaborateursController extends HttpServlet {
 	public void doGet(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
 
-		request.setAttribute("collabService", collabService);
-
-		Collaborateur c = new Collaborateur("A01", "marc", "dutrou");
-		
-		collabService.sauvegarderCollaborateur(c);
-		
-		//List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
+		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
+		request.setAttribute("collaborateurs", collaborateurs);
 		
 		request.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
-		.forward(request,resp);
+			.forward(request,resp);
 		
 	}
 	
