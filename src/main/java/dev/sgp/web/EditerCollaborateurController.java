@@ -16,8 +16,15 @@ public class EditerCollaborateurController extends HttpServlet {
 	public void doGet(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
 		
-		//Map<String,String> parametres = new HashMap<String,String>();
-		//parametres.add(request.getParameter("matricule"))
+		String matricule = request.getParameter("matricule");	
+		resp.setContentType("text/html");
+		resp.getWriter().write("<h1>Edition de collaborateur</h1>"+"Matricule:"+ matricule);	
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest request, 
+			HttpServletResponse resp) throws ServletException, IOException {
+		
 		String matricule = request.getParameter("matricule");
 		String titre = request.getParameter("titre");
 		String nom = request.getParameter("nom");
@@ -42,6 +49,7 @@ public class EditerCollaborateurController extends HttpServlet {
 				+"prenom: "+ prenom
 			);
 		}
+			
 			
 	}
 	
