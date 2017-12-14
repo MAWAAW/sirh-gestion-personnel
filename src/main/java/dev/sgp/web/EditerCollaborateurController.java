@@ -13,12 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Departement;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
 public class EditerCollaborateurController extends HttpServlet {
 	
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	
+	private DepartementService departementService = Constantes.DEPARTEMENT_SERVICE;
 
 	@Override
 	public void doGet(HttpServletRequest request, 
@@ -33,22 +37,19 @@ public class EditerCollaborateurController extends HttpServlet {
 	public void doPost(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
 		
-	
-		
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String dateNaissance = request.getParameter("dateNaissance");
 		String adresse = request.getParameter("adresse");
 		String numeroSecuriteSociale = request.getParameter("numeroSecuriteSociale");
 		
-		collabService.sauvegarderCollaborateur(new Collaborateur(nom, prenom, 
-				LocalDate.parse(dateNaissance, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
-						adresse, numeroSecuriteSociale));
+		Collaborateur nouveauCollaborateur = new Collaborateur(nom, prenom, LocalDate.parse(dateNaissance, DateTimeFormatter.ofPattern("yyyy-MM-dd")), adresse, numeroSecuriteSociale);
+		nouveauCollaborateur.setDepartement( departementService.listerDepartements().get(1) );
+		collabService.sauvegarderCollaborateur(nouveauCollaborateur);
 		
 		resp.setContentType("text/html");
 		resp.sendRedirect(request.getContextPath()+"/collaborateurs/lister");;	
-			
-			
+				
 	}
 	
 }
