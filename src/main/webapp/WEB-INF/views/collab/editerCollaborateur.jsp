@@ -14,6 +14,7 @@
 	<h1>Nouveau Collaborateur</h1>
 	
 	<div class="container">
+
 	
 		<form method=POST>
 		  <div class="form-group row">
