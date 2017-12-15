@@ -1,3 +1,4 @@
+<%@ page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 </head>
 <body>
 
-	<div class="container-fluid">
+	<div class="container">
 
 		<h1>Statistiques</h1>
 
@@ -23,13 +24,15 @@
 				<th>Max (ms)</th>
 				<th>Moyenne (ms)</th>
 			</tr>
-			<tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-				<td>Germany</td>
-				<td>Germany</td>
-			</tr>
+			<c:forEach var="visite" items="${visites}">
+				<tr>
+					<td>${visite.key}</td>
+					<td>${visite.value.count}</td>
+					<td>${visite.value.min}</td>
+					<td>${visite.value.max}</td>
+					<td>${visite.value.average}</td>
+				</tr>
+			</c:forEach>
 		</table>
 
 	</div>

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +19,12 @@ import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
+@WebServlet("/collaborateurs/editer")
 public class EditerCollaborateurController extends HttpServlet {
 	
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private final CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	
-	private DepartementService departementService = Constantes.DEPARTEMENT_SERVICE;
+	private final DepartementService departementService = Constantes.DEPARTEMENT_SERVICE;
 
 	@Override
 	public void doGet(HttpServletRequest request, 

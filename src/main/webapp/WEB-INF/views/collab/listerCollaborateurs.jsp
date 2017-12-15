@@ -1,7 +1,5 @@
 <%@ page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ page import="dev.sgp.entite.Collaborateur"%>
-<%@ page import="dev.sgp.service.CollaborateurService"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -46,7 +44,7 @@
 			</div>
 		</div>
 	
-		<c:forEach var="collab" items="${collaborateurs}">	
+		<c:forEach var="collab" items="${collaborateurs}">
 			<div class="panel panel-default col-sm-4">
 	  			<!-- Default panel contents -->
 	  			<div class="panel-heading">${collab.nom} ${collab.prenom}</div>

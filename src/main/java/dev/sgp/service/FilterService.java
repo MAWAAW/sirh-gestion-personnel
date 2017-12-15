@@ -1,22 +1,25 @@
 package dev.sgp.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
 
 import dev.sgp.entite.Departement;
+import dev.sgp.entite.VisiteWeb;
 
 public class FilterService {
 
-	Map<String,List<Integer>> listeFiltres = new HashMap<>();
+	List<VisiteWeb> listeFiltres = new ArrayList<>();
 	
 	public FilterService() {
 		
 	}
 	
-	public Map<String,List<Integer>> listerFiltres() {
+	public List<VisiteWeb> listerFiltres() {
 		return listeFiltres;
+	}
+	
+	public void sauvegarderVisiteWeb(VisiteWeb visiteWeb) {
+		listeFiltres.add(visiteWeb);
 	}
 	
 }

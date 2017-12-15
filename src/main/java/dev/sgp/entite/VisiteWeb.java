@@ -1,31 +1,19 @@
 package dev.sgp.entite;
 
 public class VisiteWeb {
-
-	private Integer id;
 	
 	private String chemin;
 	
 	private Integer tempsExecution;
 
-	public VisiteWeb(Integer id, String chemin, Integer tempsExecution) {
-		super();
-		this.id = id;
+	public VisiteWeb(String chemin, Integer tempsExecution) {
 		this.chemin = chemin;
 		this.tempsExecution = tempsExecution;
 	}
 
 	@Override
 	public String toString() {
-		return "VisiteWeb [id=" + id + ", chemin=" + chemin + ", tempsExecution=" + tempsExecution + "]";
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		return "VisiteWeb [chemin=" + chemin + ", tempsExecution=" + tempsExecution + "]";
 	}
 
 	public String getChemin() {
