@@ -11,6 +11,13 @@
 </head>
 <body>
 
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/editer">Nouveau</a></li>
+	  <li role="presentation" class="active"><a href="#">Lister</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/statistiques">Statistiques</a></li>
+	</ul>
+
+
 	<div class="container-fluid">
 
 		<h1>Liste des collaborateurs</h1>

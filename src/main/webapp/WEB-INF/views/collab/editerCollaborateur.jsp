@@ -11,10 +11,15 @@
 </head>
 <body>
 
-	<h1>Nouveau Collaborateur</h1>
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="active"><a href="#">Nouveau</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/lister">Lister</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/statistiques">Statistiques</a></li>
+	</ul>
 	
 	<div class="container">
 
+		<h1>Nouveau Collaborateur</h1>
 	
 		<form method=POST>
 		  <div class="form-group row">
