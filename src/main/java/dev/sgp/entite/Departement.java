@@ -12,7 +12,7 @@ public class Departement {
 	
 	@Override
 	public String toString() {
-		return "Departement [nom=" + nom + "]";
+		return "\"" + nom + "\"";
 	}
 	
 	public Integer getId() {

@@ -58,7 +58,7 @@
 				<div class=" col-sm-4">
 					<div class="panel panel-default">
 						<!-- Default panel contents -->
-						<div class="panel-heading">${collab.nom}${collab.prenom}</div>
+						<div class="panel-heading">${collab.nom} ${collab.prenom}</div>
 						<div class="panel-body">
 							<img class="card-img-top" width="200" height="200"
 								src="${collab.photo}">
