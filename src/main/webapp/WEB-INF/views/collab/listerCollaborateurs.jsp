@@ -4,16 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/css/bootstrap.css">
-<title>SGP - App</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/js/bootstrap.js">
+	<title>SGP - App</title>
 </head>
 <body>
 
 	<ul class="nav nav-tabs">
-	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/editer">Nouveau</a></li>
-	  <li role="presentation" class="active"><a href="#">Lister</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/nouveau">Nouveau</a></li>
+	  <li role="presentation" class="active"><a href="<%=request.getContextPath()%>/collaborateurs/lister">Lister</a></li>
 	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/statistiques">Statistiques</a></li>
 	</ul>
 
@@ -65,7 +65,10 @@
 				<div class=" col-sm-4">
 					<div class="panel panel-default">
 						<!-- Default panel contents -->
-						<div class="panel-heading">${collab.nom} ${collab.prenom}</div>
+						<div class="panel-heading">
+							<a href="<c:url value='editer?matricule=${collab.matricule}'/>">Editer</a>
+							<p align="right"><b>${collab.nom} ${collab.prenom}</b></p>
+						</div>
 						<div class="panel-body">
 							<img class="card-img-top" width="200" height="200"
 								src="${collab.photo}">

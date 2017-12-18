@@ -12,7 +12,7 @@
 <body>
 
 	<ul class="nav nav-tabs">
-	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/editer">Nouveau</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/nouveau">Nouveau</a></li>
 	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/lister">Lister</a></li>
 	  <li role="presentation" class="active"><a href="#">Statistiques</a></li>
 	</ul>

@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +19,8 @@ import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
-@WebServlet("/collaborateurs/editer")
-public class EditerCollaborateurController extends HttpServlet {
+@WebServlet("/collaborateurs/nouveau")
+public class NouveauCollaborateurController extends HttpServlet {
 	
 	private final CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	
@@ -31,14 +30,7 @@ public class EditerCollaborateurController extends HttpServlet {
 	public void doGet(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
 		
-		String matricule = request.getParameter("matricule");
-		
-		Collaborateur collab = collabService.listerCollaborateurs().stream().filter(c -> c.getMatricule().equals(matricule)).findAny().orElse(null);
-		
-		System.out.println("collab: "+collab);
-		
-		request.setAttribute("collab", collab);
-		request.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateur.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/collab/nouveauCollaborateur.jsp")
 			.forward(request,resp);
 		
 	}
@@ -46,12 +38,16 @@ public class EditerCollaborateurController extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
-	
-		String matricule = request.getParameter("matricule");
-		String adresse = request.getParameter("adresse");
 		
-		Collaborateur collab = collabService.listerCollaborateurs().stream().filter(c -> c.getMatricule().equals(matricule)).findFirst().orElse(null);
-		collab.setAdresse(adresse);
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String dateNaissance = request.getParameter("dateNaissance");
+		String adresse = request.getParameter("adresse");
+		String numeroSecuriteSociale = request.getParameter("numeroSecuriteSociale");
+		
+		Collaborateur nouveauCollaborateur = new Collaborateur(nom, prenom, LocalDate.parse(dateNaissance, DateTimeFormatter.ofPattern("yyyy-MM-dd")), adresse, numeroSecuriteSociale);
+		nouveauCollaborateur.setDepartement( departementService.listerDepartements().get(1) );
+		collabService.sauvegarderCollaborateur(nouveauCollaborateur);
 		
 		resp.setContentType("text/html");
 		resp.sendRedirect(request.getContextPath()+"/collaborateurs/lister");;	

@@ -36,8 +36,8 @@ public class Collaborateur {
 	
 	@Override
 	public String toString() {
-		return "Matricule= " + matricule + "\n, Date de naissance= "
-				+ dateNaissance + "\n, Poste= " + intitulePoste + "\n, Departement= " + departement;
+		return "Matricule= " + matricule + "\n, Date de naissance= " + dateNaissance + "\n, Adresse= "
+				+ adresse + "\n, Poste= " + intitulePoste + "\n, Departement= " + departement;
 	}
 
 	public String getNumeroSecuriteSociale() {

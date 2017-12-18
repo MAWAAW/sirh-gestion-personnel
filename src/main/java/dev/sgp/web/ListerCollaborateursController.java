@@ -44,14 +44,8 @@ public class ListerCollaborateursController extends HttpServlet {
 	public void doPost(HttpServletRequest request, 
 			HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
-		request.setAttribute("collaborateurs", collaborateurs);
-		
-		List<Departement> departements = departementService.listerDepartements();
-		request.setAttribute("departements", departements);
-
-		request.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
-		.forward(request,resp);
+		request.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateurs.jsp")
+			.forward(request,resp);
 		
 	}
 	

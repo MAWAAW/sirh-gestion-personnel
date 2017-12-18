@@ -34,6 +34,7 @@ public class Initializer implements ServletContextListener {
 		
 		Collaborateur c1 = new Collaborateur("Barrault", "Loic", LocalDate.parse("1982-01-24", DateTimeFormatter.ofPattern("yyyy-MM-dd")), "41 rue du lynx", "123456789012345");
 		c1.setDepartement(departementService.listerDepartements().get(0));
+		c1.setMatricule("AAA");
 		collabService.sauvegarderCollaborateur(c1);
 		Collaborateur c2 = new Collaborateur("La sauvage", "Marie", LocalDate.parse("1952-10-24", DateTimeFormatter.ofPattern("yyyy-MM-dd")), "24 rue du loup", "754215485412457");
 		c2.setDepartement(departementService.listerDepartements().get(1));

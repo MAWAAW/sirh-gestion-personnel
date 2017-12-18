@@ -12,53 +12,54 @@
 <body>
 
 	<ul class="nav nav-tabs">
-	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/nouveau">Nouveau</a></li>
+	  <li role="presentation" class="active"><a href="#">Nouveau</a></li>
 	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/lister">Lister</a></li>
 	  <li role="presentation"><a href="<%=request.getContextPath()%>/collaborateurs/statistiques">Statistiques</a></li>
 	</ul>
 	
 	<div class="container">
 
-		<h1>Editer Collaborateur</h1>
+		<h1>Nouveau Collaborateur</h1>
 	
 		<form method=POST>
 		  <div class="form-group row">
 		    <label for="nom" class="col-sm-2 col-form-label">Nom</label>
 		    <div class="col-sm-6 input-group">
 		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		    	<input type="text" id="nom" name="nom" class="form-control" value="${collab.getNom()}" readonly>
+		    	<input type="text" id="nom" name="nom" class="form-control" required>
 		    </div>
 		  </div>
 		  <div class="form-group row">
 		    <label for="prenom" class="col-sm-2 col-form-label">Prenom</label>
 		    <div class="col-sm-6 input-group">
 		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		    	<input type="text" id="prenom" name="prenom" class="form-control" value="${collab.getPrenom()}" readonly>
+		    	<input type="text" id="prenom" name="prenom" class="form-control" required>
 		    </div>
 		  </div>
 		  <div class="form-group row">
 		    <label for="dateNaissance" class="col-sm-2 col-form-label">Date de Naissance</label>
 		    <div class="col-sm-6 input-group">
 		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		    	<input type="date" id="dateNaissance" name="dateNaissance" class="form-control" value="${collab.getDateNaissance()}" readonly>
+		    	<input type="date" id="dateNaissance" name="dateNaissance" class="form-control" required>
 		    </div>
 		  </div>
 		  <div class="form-group row">
 		    <label for="adresse" class="col-sm-2 col-form-label">Adresse</label>
 		    <div class="col-sm-6 input-group">
 		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		    	<input type="text" id="adresse" name="adresse" class="form-control" value="${collab.getAdresse()}" required>
+		    	<input type="text" id="adresse" name="adresse" class="form-control" required>
 		    </div>
 		  </div>
 		  <div class="form-group row">
 		    <label for="numeroSecuriteSociale" class="col-sm-2 col-form-label">Numéro de sécurité sociale</label>
 		    <div class="col-sm-6 input-group">
 		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		    	<input type="text" id="numeroSecuriteSociale" name="numeroSecuriteSociale" class="form-control" value="${collab.getNumeroSecuriteSociale()}" readonly>
+		    	<input type="text" id="numeroSecuriteSociale" name="numeroSecuriteSociale" class="form-control" required>
 		    </div>
+		    <small class="text-muted">Doit contenir 15 chiffres</small>
 		  </div>
 		  <div class="col-sm-offset-6">
-		  	<button type="submit" class="btn btn-primary">Editer</button>
+		  	<button type="submit" class="btn btn-primary">Créer</button>
 		  </div>
 		</form>
 	</div>
