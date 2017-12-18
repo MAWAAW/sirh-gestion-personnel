@@ -24,8 +24,6 @@ import dev.sgp.util.Constantes;
 public class EditerCollaborateurController extends HttpServlet {
 	
 	private final CollaborateurService collabService = Constantes.COLLAB_SERVICE;
-	
-	private final DepartementService departementService = Constantes.DEPARTEMENT_SERVICE;
 
 	@Override
 	public void doGet(HttpServletRequest request, 
@@ -34,8 +32,6 @@ public class EditerCollaborateurController extends HttpServlet {
 		String matricule = request.getParameter("matricule");
 		
 		Collaborateur collab = collabService.listerCollaborateurs().stream().filter(c -> c.getMatricule().equals(matricule)).findAny().orElse(null);
-		
-		System.out.println("collab: "+collab);
 		
 		request.setAttribute("collab", collab);
 		request.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateur.jsp")
