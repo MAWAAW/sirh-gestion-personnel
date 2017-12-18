@@ -47,7 +47,9 @@ public class EditerCollaborateurController extends HttpServlet {
 		String adresse = request.getParameter("adresse");
 		
 		Collaborateur collab = collabService.listerCollaborateurs().stream().filter(c -> c.getMatricule().equals(matricule)).findFirst().orElse(null);
-		collab.setAdresse(adresse);
+		
+		if(collab!=null)
+			collab.setAdresse(adresse);
 		
 		resp.setContentType("text/html");
 		resp.sendRedirect(request.getContextPath()+"/collaborateurs/lister");;	
